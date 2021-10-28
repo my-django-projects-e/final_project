@@ -1,4 +1,4 @@
-# final_project
+# Final project
 My final project I made for the P12 examination I made in two weeks.
 
 The project is inspired by the real CRM app my project partner used at work. The main function of the app is to store and navigate data about the clients & their cases. It has several tables with filtering, which rows are colored depending on the start and end dates of their insurance coverage. 
