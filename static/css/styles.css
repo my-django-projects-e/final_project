@@ -1,0 +1,49 @@
+.navbar-brand {
+  font-size: 1.5em;
+  font-family: consolas;
+}
+
+.navbar-nav {
+  gap: 10px;
+}
+
+.nav-item {
+  font-size: 1.2em;
+  display: block;
+  font-weight: bold;
+}
+
+#done-tasks {
+  background-color: #4cb4c7;
+}
+
+#done-recipes {
+  background-color: #7abecc;
+}
+
+#done-days {
+  background-color: #7CD1C0;
+}
+
+#profile {
+  margin: 0 30px;
+}
+
+#profile-pic {
+	max-width: 200px; !important
+	max-height: 200px; !important
+	margin: 0 auto; !important
+	border-radius: 50%; !important
+}
+
+.new {
+  
+}
+
+.today {
+  
+}
+
+.due {
+  
+}

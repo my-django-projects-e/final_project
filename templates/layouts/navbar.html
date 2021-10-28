@@ -1,0 +1,60 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-primary">
+  <div class="container-fluid mx-3">
+    <a class="navbar-brand" href="#">CRM-ARX</a>
+    <div class="d-flex justify-content-between flex-grow-1">
+      <ul class="navbar-nav d-flex align-items-center">
+        <li class="nav-item">
+          <a
+            class="
+              nav-link
+              {% if request.resolver_match.view_name == 'clients:index' %}
+              active
+              {% endif %}
+            "
+            href="{% url 'clients:index' %}"
+            >Клиенты</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="
+              nav-link
+              {% if request.resolver_match.view_name == 'home:index' %}
+              active
+              {% endif %}
+            "
+            href="{% url 'account:log_out' %}"
+            >Договора</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="
+              nav-link
+              {% if request.resolver_match.view_name == 'home:index' %}
+              active
+              {% endif %}
+            "
+            href="{% url 'account:log_out' %}"
+            >Аппели</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex align-items-center">
+        <li class="text-white fst-italic">Добро пожаловать, {{ request.user.username }}</li>
+        <li class="nav-item">
+          <a
+            class="
+              nav-link
+              {% if request.resolver_match.view_name == 'account:profile' %}
+              active
+              {% endif %}
+            "
+            href="{% url 'account:profile' request.user.id %}"
+            >Профиль</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account:log_out' %}">Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

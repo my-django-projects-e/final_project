@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Настройки{% endblock title %}
+
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+
+<br>
+<div class="d-flex">
+	<div class="d-flex flex-column justify-content-evenly">
+		<div class="card card-body mx-3">
+			<h3 style="text-align: center">Настройки пользователя</h3>
+      <!-- таки смог!!!! проверка есть ли у юзера аватар -->
+      {% if employee.profile_pic %}
+			<img class="profile-pic" src="{{employee.profile_pic.url}}" >
+      {% else %}
+      <img class="profile-pic" src="{% static 'images/profile-pic1.png' %}" >
+		  {% endif %}
+			<hr>
+			<a class="btn btn-primary" href="{% url 'account:profile' request.user.id %}"> &#8592; Вернуться в профиль</a>
+      <br>
+      <p class="lead mt-3">Работа может быть<br> сложной и трудоёмкой.<br> Помните: делайте перерывы<br> и не забывайте дышать!</p>
+		</div>
+	</div>
+	<div class="flex-grow-1">
+		<div class="card card-body w-50">
+			
+			<form class="" method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+        <div class="my-2">
+          <label for="{{ form.name.id_for_label }}">Имя</label>
+          {{ form.name }}
+        </div>
+        <div class="my-2">
+          <label for="{{ form.phone.id_for_label }}">Телефон</label>
+          {{ form.phone }}
+        </div>
+        <div class="my-2">
+          <label for="{{ form.email.id_for_label }}">Почта</label>
+          {{ form.email }}
+        </div>
+        <div class="my-2">
+          <label for="{{ form.birthday.id_for_label }}">Дата рождения</label>
+          {{ form.birthday  }}
+        </div>
+        <div class="my-2">
+          <label for="{{ form.profile_pic.id_for_label }}">Аватар</label>
+          {{ form.profile_pic }}
+        </div>
+			<input class="btn btn-primary my-2" type="submit" name="Update Information" value="Обновить информацию">
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

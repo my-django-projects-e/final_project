@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Удалить клиента{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-3">
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Подтверждение удаления</h4>
+    <p>Внимание! Вы собираетесь удалить случай {{ case.num_case }} клиента {{ case.client.full_name }}!</p>
+    <hr>
+    <p>Подтвердить удаление?</p>
+    <div class="d-flex">
+			<form action="{% url 'clients:delete_case' case.id %}" method="POST">
+				{% csrf_token %}
+				<a class="btn btn-warning" href="{% url 'clients:details' case.client.id %}">Отмена</a>
+				<input class="btn btn-danger" type="submit" name="Confirm" value="Удалить">
+			</form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
